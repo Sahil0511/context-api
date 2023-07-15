@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { faker } from "@faker-js/faker";
+import SingleProd from "./SingleProd";
+import "./index.css";
 
 const Home = () => {
   const prodArray = [...Array(20)].map(() => ({
@@ -14,8 +16,8 @@ const Home = () => {
   return (
     <>
       <div className="productContainer">
-        {product.map((currElem) => {
-          console.log(currElem.id);
+        {product.map((prod, index) => {
+          return <SingleProd keyV={index} prod={prod} />;
         })}
       </div>
     </>
