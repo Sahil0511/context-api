@@ -3,6 +3,8 @@ import { faker } from "@faker-js/faker";
 import SingleProd from "./SingleProd";
 import "./index.css";
 
+faker.seed(20);
+
 const Home = () => {
   const prodArray = [...Array(20)].map(() => ({
     id: faker.string.uuid(),

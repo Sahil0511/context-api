@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 
 const SingleProd = ({ prod, keyV }) => {
+  const [cart, setCart] = useState([]);
+
   return (
     <>
       <div className="products" key={keyV}>
@@ -11,7 +13,18 @@ const SingleProd = ({ prod, keyV }) => {
           <span>Rs.{prod.price.substring(0, 3)}</span>
         </div>
 
-        <button className="add">Add to Cart</button>
+        {cart.includes(prod) ? (
+          <button
+            className="add remove"
+            onClick={() => setCart(cart.filter((c) => c.id !== prod.id))}
+          >
+            Remove from Cart
+          </button>
+        ) : (
+          <button className="add" onClick={() => setCart([...cart, prod])}>
+            Add to Cart
+          </button>
+        )}
       </div>
     </>
   );
