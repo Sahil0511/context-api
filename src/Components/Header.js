@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./index.css";
 import { Link } from "react-router-dom";
+import { CartItem } from "./Context";
 
 const Header = () => {
+  const { cart } = useContext(CartItem);
   return (
     <>
       <span className="header">Context API</span>
@@ -14,7 +16,7 @@ const Header = () => {
         </li>
         <li>
           <Link to="/cart" className="prodLink">
-            Cart
+            Cart({cart.length})
           </Link>
         </li>
       </ul>

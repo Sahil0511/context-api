@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { CartItem } from "./Context";
 import "./index.css";
 
-const SingleProd = ({ prod, keyV }) => {
-  const [cart, setCart] = useState([]);
+const SingleProd = ({ prod }) => {
+  const { cart, setCart } = useContext(CartItem);
 
   return (
     <>
-      <div className="products" key={keyV}>
+      <div className="products">
         <img src={prod.image} alt="" />
         <div className="productDesc">
           <span style={{ fontWeight: 700 }}>{prod.name}</span>
